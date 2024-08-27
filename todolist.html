@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: url(pic3.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+    .completed{
+        text-decoration: line-through;
+        color: gray;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    #btn1{
+        height: 4vh;
+        width: 7vw;
+        display: flex;
+        margin: auto;
+        margin-right: 390px;
+        margin-top: -30px;
+        justify-content: center;
+        align-items: center; 
+        color: plum;
+        background-color:transparent;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 15px;
+        border: 2px solid plum;
+    }
+    input{
+        width: 23%;
+        height: 4vh;
+        background-color:transparent;
+        color: floralwhite;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 15px;
+        border: 2px solid plum;
+
+    
+    
+
+
+    }
+h1{
+    display: flex;
+    margin-top: 100PX;
+    margin-left: 70px;
+    color: plum;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 40px;
+        font-weight: bolder;
+}
+.container1{
+    width: 40%;
+    height: auto;
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    margin-right: 350px;
+    justify-content:center ;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid white;
+    background-color: plum;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 15px;
+    
+}
+.del{
+    height: 3vh;
+        width: 6vw;
+        margin-left: 10px;
+        margin: 10px;
+
+        justify-content: center;
+        align-items: center; 
+        color: white;
+        background-color:transparent;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 13px;
+        font-weight: bold;
+        border-radius: 12px;
+        border: 2px solid white;
+}
+.edit{
+    height: 3vh;
+        width: 6vw;
+        margin-left: 10px;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color:transparent;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 13px;
+        font-weight: bold;
+        border-radius: 12px;
+        border: 2px solid white;
+}
+.list{
+    color: white;
+    font-size: 17px;
+    
+
+}
+
+</style>
+
+
+<body>
+    <div class="container">
+
+    <h1><dfn><strong>TO DO LIST:-</strong></dfn></h1>
+
+    <input type="text" name="" id="txt1">
+</div>
+    <input type="button" id="btn1" value="Add List" onclick="add()">
+<div class="container1">
+
+    <ul id="ul1"></ul>
+</div>
+
+
+    <script>
+        function add(){
+            let textboxvalue=document.getElementById("txt1").value;
+            let ul=document.getElementById("ul1");
+            if(textboxvalue==""){
+                alert("Empty Field");
+                li.remove()
+            }
+
+
+            // create li
+            var li=document.createElement('li');
+            var textnode=document.createTextNode(textboxvalue);
+            li.appendChild(textnode);
+            ul.appendChild(li);
+            document.getElementById('txt1').value="";
+            li.classList.add("list");
+
+            // create delete button
+            var del=document.createElement('button');
+            del.innerHTML="Delete";
+            del.onclick=function(){
+                li.remove()
+                
+            }
+            li.appendChild(del);
+            del.classList.add("del");
+
+            // create edit button
+            var edit=document.createElement('button');
+            edit.innerHTML="Edit";
+            edit.onclick=function(){
+                var newlist=prompt('Enter Your Updated List')
+                if(textnode!==""){
+                    li.firstChild.textContent=newlist;
+                }
+            }
+            li.appendChild(edit);
+            // marked completed task 
+            li.addEventListener("click",function(){
+                li.classList.toggle('completed');
+            })
+          
+          edit.classList.add('edit');
+
+          
+
+
+        }
+
+    </script>
+</body>
+</html>
